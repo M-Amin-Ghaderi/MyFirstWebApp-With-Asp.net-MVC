@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "صفحه اصلی";
+}
+<h2 class="m-5">مقالات</h2>
+<div class="articles">
+    <div class="article">
+        <a href="#"><img src="~/images/BgImages/peakpx.jpg" /></a>
+    </div>
+    <div class="article">
+        <a href="#"> <img src="~/images/BgImages/Threat Hunting   Security Intelligence.jpg" /></a>
+    </div>
+    <div class="article">
+        <a href="#"><img src="~/images/BgImages/Should-I-study-computer-science.jpg" /></a>
+    </div>
+    <div class="article">
+        <a href="#"><img src="~/images/BgImages/b_Must-Have-Mobile-Game-Development-Tools-.png" /></a>
+    </div>
+</div>
+<br />
+<br />
+<h2 class="m-5">محصولات</h2>
+<div class="products" style="width:60%;">
+    @Html.Action("PV_Index", "Products")
+</div>
+@section style{
+    <style>
+        h1, h2 {
+            color: white;
+            text-align: center;
+        }
+
+        body {
+            background-image: url('../../images/bgimages/peakpx (21).jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+
+}

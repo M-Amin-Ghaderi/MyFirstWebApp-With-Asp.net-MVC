@@ -1,0 +1,69 @@
+﻿@model WebApplication1.Models.Tbl_Products
+
+@{
+    ViewBag.Title = "جزئیات";
+}
+<div class="signup-form text-white mt-5">
+    <h2 class="text-center mt-3">جزئیات</h2>
+    <dl class="form-horizontal">
+        <dt class="form-label ml-3 mb-2">
+            @Html.DisplayNameFor(model => model.Product_Name)
+        </dt>
+        <dd class="form-control col-10">
+            @Html.DisplayFor(model => model.Product_Name)
+        </dd>
+
+        <dt class="form-label ml-3 mb-2">
+            @Html.DisplayNameFor(model => model.Product_Details)
+        </dt>
+
+        <dd class="form-control col-10">
+            @Html.DisplayFor(model => model.Product_Details)
+        </dd>
+
+        <dt class="form-label ml-3 mb-2">
+            @Html.DisplayNameFor(model => model.Product_Price)
+        </dt>
+
+        <dd class="form-control col-10">
+            @Html.DisplayFor(model => model.Product_Price) تومان
+        </dd>
+
+        <dt class="form-label ml-3 mb-2">
+            @Html.DisplayNameFor(model => model.Product_Image)
+        </dt>
+
+        <dd style="background-color:#222 !important">
+            <img src="~/images/Product/@Model.Product_Image" style="width:200px;height:150px;border-radius:5px;" />
+        </dd>
+
+        <dt class="form-label ml-3 mb-2">
+            @Html.DisplayNameFor(model => model.Product_UserId)
+        </dt>
+        <dd class="form-control col-10">
+            @ViewBag.User
+        </dd>
+
+    </dl>
+    <div class="form-group float-left">
+        <div class="offset-md-12 mr-3">
+            @Html.ActionLink("بازگشت به لیست محصولات", "Index") | 
+            @Html.ActionLink("ویرایش","Edit", new { id = Model.Id }, new { @class = "btn btn-success"  })
+        </div>
+    </div>
+</div>
+
+
+@section style{
+    <style>
+        body {
+            background-image: url('../../images/BgImages/peakpx (18).jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        footer {
+            display: none;
+        }
+    </style>
+}

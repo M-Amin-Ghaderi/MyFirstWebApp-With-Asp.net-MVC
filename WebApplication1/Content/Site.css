@@ -1,0 +1,513 @@
+﻿* {
+    font-family: vazir !important;
+}
+
+body {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.product .product-body {
+    color: white;
+    text-decoration: none;
+}
+
+.my-navbar {
+    position: relative;
+    margin-top: 0px !important;
+    width: 100% !important;
+    padding: 15px 0px;
+}
+
+a {
+    color: #ebc23f;
+    text-decoration: none !important;
+}
+
+    a:hover {
+        color: #D4AF37;
+    }
+
+.my-navbar .search-form > a {
+    margin: 0px 5px !important;
+}
+
+.my-navbar .search-form input:nth-child(1) {
+    padding: 3px !important;
+    border-radius: 10px !important;
+}
+
+.my-navbar ul {
+    margin: auto 0px;
+}
+
+.container {
+    width: 100% !important;
+    padding: 0px 0px;
+}
+
+.navbar-container {
+    width: 80% !important;
+    display: flex !important;
+    flex-shrink: 3 !important;
+    position: center !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin: 0px auto !important;
+}
+
+
+.tbl-about {
+    margin: 0px auto;
+    border: 5px solid black;
+    border-radius: 5px;
+    border-collapse: collapse;
+    width: 1000px;
+    text-align: center;
+    justify-content: center;
+}
+
+td, tr {
+    background-color: white;
+    padding: 5px;
+    border: 1px solid black;
+    width: fit-content !important;
+}
+
+th {
+    width: max-content !important;
+}
+
+.tbl-about thead tr th {
+    background-color: #D4AF37;
+    color: white;
+    border: 1px solid black;
+    cursor: default;
+    text-align: center;
+}
+
+.my-navbar ul li {
+    display: inline !important;
+    margin: 0px 5px !important;
+}
+
+
+.signup-form {
+    position: absolute;
+    right: 50%;
+    width: 700px;
+    margin-right: -350px;
+    outline: 3px solid #D4AF37;
+    border-radius: 5px;
+    background-color: #222;
+    animation: form-anim 0.2s alternate ease-out;
+    margin-top: 25vh;
+}
+
+.create-form {
+    color: white;
+    outline: 3px solid #D4AF37;
+    border-radius: 5px;
+    background-color: #222;
+    animation: form-anim 0.2s alternate ease-out;
+}
+
+@keyframes form-anim {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.signup-form form {
+    color: white;
+    border-radius: 5px;
+    padding: 32px;
+}
+
+    .signup-form form input, select {
+        color: white !important;
+        padding: 3px;
+        margin: 1px;
+        width: 197px;
+        text-align: right;
+        border-radius: 5px;
+        background-color: #333;
+        outline: none;
+        border: none !important;
+        color: white;
+    }
+
+.signup-form .form-horizontal input, textarea {
+    text-align: right;
+    border-radius: 5px;
+    background-color: #333 !important;
+    outline: none;
+    border: none !important;
+    color: white !important;
+    padding: 3px;
+    margin: 1px;
+}
+
+.signup-form dd {
+    color: white;
+    background-color: #333 !important;
+    border: none !important;
+}
+
+.signup-form form input:nth-last-child(1) {
+    display: block;
+    margin: 5px auto;
+}
+
+.signup-form form table tr td, .signup-form form table tr {
+    background-color: #222 !important;
+    border: none;
+}
+
+input, textarea {
+    text-align: right !important;
+    border-radius: 5px;
+    outline: none !important;
+    border: none;
+}
+
+    input:focus, textarea:focus {
+        outline: none !important;
+        border-color: #D4AF37 !important;
+        box-shadow: 0 0 12px #D4AF37 !important;
+    }
+
+footer {
+    color: white;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    align-items: center;
+    bottom: 0px;
+    margin-top: 10px;
+    padding-top: 2px;
+}
+
+    footer p {
+        max-width: 70%;
+        margin: 0px auto;
+    }
+
+.my-btn {
+    border-radius: 5px !important;
+    text-align: center !important;
+    cursor: pointer !important;
+    padding: 3px 10px !important;
+}
+
+.btn-orange {
+    background-color: rgb(176, 61, 18) !important;
+    color: white;
+    transition: 0.1s;
+}
+
+.btn-gold {
+    background-color: #D4AF37 !important;
+    color: white !important;
+    transition: 0.1s;
+}
+
+    .btn-gold:hover {
+        background-color: #ebc23f !important;
+        color: white !important;
+    }
+
+    .btn-gold:active {
+        background-color: #ffd44d !important;
+        color: white !important;
+    }
+
+.btn-orange:hover {
+    background-color: rgb(155, 56, 19);
+    color: white;
+}
+
+.btn-orange:active {
+    background-color: rgb(130, 48, 17) !important;
+    color: white !important;
+}
+
+
+.bg-DarkBlue {
+    background-color: rgb(32, 39, 75);
+}
+
+.bg-Orange {
+    background-color: rgb(176, 61, 18)
+}
+
+.bg-White {
+    background-color: white;
+}
+
+.bg-gray {
+    background-color: rgb(41, 45, 56);
+}
+
+.bg-gold {
+    background-color: #D4AF37;
+}
+
+
+@media screen and (max-width:1024px) {
+    nav {
+        transition: 0.1s;
+        font-size: 12px !important;
+    }
+}
+
+.my-navbar a {
+    color: white !important;
+    transition: 0.1s;
+    text-decoration: none !important;
+}
+
+    .my-navbar a:hover {
+        color: #d3d3d3 !important;
+    }
+
+    .my-navbar a:active {
+        color: #9b9b9b !important;
+    }
+
+.circle-1, .circle-2, .circle-3 {
+    position: absolute;
+    display: block;
+    background-color: #D4AF37;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    z-index: -1;
+    transition: 0.2s;
+}
+
+    .circle-1:hover, .circle-2:hover, .circle-3:hover {
+        background-color: #ffd44d;
+        transition: 0.2s;
+        box-shadow: 0 0 20px #D4AF37;
+    }
+
+.circle-1 {
+    margin: 15% 10% 20% 30%;
+    animation: anim1 alternate 1.2s linear infinite;
+}
+
+.circle-2 {
+    margin: 25% 80% 70% 30%;
+    animation: anim1 alternate 1.3s linear infinite;
+}
+
+.circle-3 {
+    margin: 5% 70% 20% 10%;
+    animation: anim1 alternate-reverse 1s linear infinite;
+}
+
+@keyframes anim1 {
+    0% {
+        top: 30px;
+    }
+
+    100% {
+        top: 0px;
+    }
+}
+
+@media screen and (max-width:1600px) {
+    .circles {
+        display: none;
+    }
+
+    .navbar-container {
+        width: 100%;
+        display: flex;
+        position: center;
+        align-items: center;
+        justify-content: center;
+        margin: 0px auto;
+    }
+
+        .navbar-container .search-form input {
+            width: 150px;
+        }
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto auto;
+    width: 80%;
+    margin: 5px auto;
+    justify-content: center;
+}
+
+.product {
+    background-color: rgb(52, 57, 70);
+    border-radius: 5px;
+    width: 300px;
+    height: 420px;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+    box-shadow: 0px 0px 15px #D4AF37;
+    color: white;
+    outline: 3px solid #D4AF37;
+    transition: 0.2s;
+    animation: form-anim 0.2s alternate ease-out;
+}
+
+    .product:hover {
+        box-shadow: 0px 0px 40px #D4AF37;
+        outline: 3px solid #ffd44d;
+    }
+
+.product-image > img {
+    border-radius: 10px;
+    margin: 2.5%;
+    width: 295px;
+    height: 200px;
+    max-height: 95%;
+    max-width: 95%;
+}
+
+.product .product-body {
+    height: 35%;
+    overflow: auto;
+}
+
+.product-body ul {
+    list-style: none;
+    float: right;
+}
+
+.product-name span {
+    font-weight: bold;
+}
+
+.product-link a {
+    position: relative;
+    color: white !important;
+    background-color: forestgreen;
+    transition: 0.1s;
+    text-decoration: none;
+    margin-bottom: 0px;
+    top: 5px;
+}
+
+    .product-link a:hover {
+        color: #d3d3d3 !important;
+    }
+
+    .product-link a:active {
+        color: #9b9b9b !important;
+    }
+
+@media screen and (max-width:768px) {
+    .signup-form {
+        width: 500px;
+        margin-right: -250px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .navbar-container .search-form input {
+        width: 100px;
+    }
+}
+
+.edit-profile {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: rgb(41, 45, 56);
+    outline: 3px solid #D4AF37;
+    border-radius: 10px;
+}
+
+
+.edit-profile-form {
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    margin: auto 0px;
+}
+
+    .edit-profile-form form {
+        border-radius: 5px;
+        padding: 32px;
+        outline: 3px solid #D4AF37;
+    }
+
+
+
+
+.articles {
+    width: 50%;
+    margin: 0px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.article {
+    width: 400px;
+    height: auto;
+    background-color: gold;
+    border-radius: 6px;
+    transition: 0.2s;
+    animation: form-anim 0.2s alternate ease-out;
+}
+
+    .article:nth-child(1) {
+        width: 95%;
+        height: auto;
+    }
+
+    .article a > img {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+    }
+
+    .article:hover {
+        box-shadow: 0px 0px 40px #D4AF37;
+    }
+
+
+
+@font-face {
+    font-family: 'vazir-bold';
+    src: url('../fonts/vazir-bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'vazir-light';
+    src: url('../fonts/vazir-light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'vazir-medium';
+    src: url('../fonts/vazir-medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'vazir-thin';
+    src: url('../fonts/vazir-thin.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'vazir';
+    src: url('../fonts/vazir.ttf') format('truetype');
+}

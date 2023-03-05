@@ -1,0 +1,198 @@
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: black;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#000,#D4AF37,#000);
+    z-index: -5;
+    animation: animate 5s linear infinite;
+}
+
+.spans {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    gap: 2px;
+    flex-wrap: wrap;
+    z-index: -2;
+    overflow: hidden;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+section {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    gap: 2px;
+    z-index: 1000;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.spans span {
+    position: relative;
+    display: block;
+    width: calc(6.25vw - 2px);
+    height: calc(6.25vw - 2px);
+    background-color: #181818;
+    transition: 1s;
+    z-index: -1;
+}
+
+    .spans span:hover {
+        background-color: #D4AF37;
+        transition: 0s;
+    }
+
+section .login {
+    position: absolute;
+    width: 350px;
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    animation: form-anim 0.2s alternate ease-out;
+    outline: 3px solid #D4AF37;
+    border-radius: 5px;
+}
+@keyframes form-anim {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+    section .login .content {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+        section .login .content h2 {
+            color: #D4AF37;
+            text-transform: uppercase;
+        }
+
+        section .login .content .form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+            section .login .content .form .inputbox {
+                position: relative;
+                width: 100%;
+            }
+
+                section .login .content .form .inputbox input {
+                    position: relative;
+                    width: 100%;
+                    background-color: #333;
+                    border: none;
+                    outline: none;
+                    padding: 10px 7px;
+                    border-radius: 5px;
+                    color: white;
+                }
+
+            section .login .content .form .links input[type='submit'] {
+                position: relative;
+                width: 100%;
+                background-color: #D4AF37;
+                border: none;
+                text-align: center;
+                outline: none;
+                padding: 7px 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: 0.2s;
+            }
+
+                section .login .content .form .links input[type='submit']:hover {
+                    background-color: #ebc23f;
+                }
+
+                section .login .content .form .links input[type='submit']:active {
+                    background-color: #ffd44d;
+                }
+
+            section .login .content .form .inputbox i {
+                position: absolute;
+                left: 0;
+                padding: 15px 10px;
+                font-style: normal;
+                color: #aaa;
+                transition: 0.5s;
+                pointer-events: none;
+            }
+
+            section .login .content .form .inputbox a {
+                display: block;
+            }
+
+
+section .login .content .form .inputbox a:active {
+    color: #00b100
+}
+
+section .login .content .form .inputbox input:focus ~ i,
+section .login .content .form .inputbox input:valid ~ i {
+    transform: translateY(-7.5px);
+    font-size: 0.8em;
+    color: white;
+}
+
+@media (min-width:1200px) {
+    .spans span {
+        width: calc(4vw - 2px);
+        height: calc(4vw - 2px);
+    }
+}
+
+@media (max-width:992px) {
+    .spans span {
+        width: calc(10vw - 2px);
+        height: calc(10vw - 2px);
+    }
+}
+
+@media (max-width:600px) {
+    .spans span {
+        width: calc(20vw - 2px);
+        height: calc(20vw - 2px);
+    }
+}

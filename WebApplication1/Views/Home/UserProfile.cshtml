@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "پنل کاربری";
+}
+
+<h2>ویرایش پروفایل</h2>
+<div class="edit-profile">
+    <div class="product">
+        <div class="product-image">
+            <img src="@ViewBag.image" style="align-self:center;height:250px;" alt="ProfileImage">
+        </div>
+        <div class="product-body">
+            <ul>
+                <li>نام : @ViewBag.name @ViewBag.family</li>
+                <li>موبایل : @ViewBag.mobile</li>
+            </ul>
+        </div>
+    </div>
+    <div class="edit-profile-form">
+        <form class="bg-gray" enctype="multipart/form-data" method="post">
+            <input type="text" name="firstName" placeholder="نام" value="@ViewBag.name" />
+            <input type="text" name="lastName" placeholder="نام خانوادگی" value="@ViewBag.family" />
+            <input type="text" name="nationalCode" placeholder="کد ملی" value="@ViewBag.code" />
+            <br />
+            <br />
+            <input type="text" name="mobile" placeholder="موبایل" value="@ViewBag.mobile" />
+            <input type="email" name="email" placeholder="ایمیل" value="@ViewBag.email" />
+            <input type="file" name="profilePic" value="@ViewBag.image" placeholder="@ViewBag.image" />
+            <br />
+            <br />
+            <input type="submit" name="submitButton" value="ویرایش" onclick="alert('با موفقیت ویرایش شد');" class="my-btn btn-gold" style="float:left" />
+            <br />
+            <br />
+        </form>
+    </div>
+</div>
+@section style{
+    <style>
+        h2{
+            text-align:center;
+            color:white;
+        }
+        body {
+            background-image: url('../../images/bgimages/peakpx (18).jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        footer{
+            display:none;
+        }
+    </style>
+}

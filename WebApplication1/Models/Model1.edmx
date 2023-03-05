@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Db_WebApp1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Tbl_Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product_Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Product_Details" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Product_Price" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Product_Image" Type="varchar" MaxLength="50" />
+          <Property Name="Product_UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Roles">
+          <Key>
+            <PropertyRef Name="Role_Id" />
+          </Key>
+          <Property Name="Role_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role_Name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Role_Title" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" />
+          <Property Name="Family" Type="nvarchar" MaxLength="20" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Register_date" Type="datetime" Nullable="false" />
+          <Property Name="gender" Type="bit" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="UserRole_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Tbl_Produ__Produ__48CFD27E">
+          <End Role="Tbl_Users" Type="Self.Tbl_Users" Multiplicity="1" />
+          <End Role="Tbl_Products" Type="Self.Tbl_Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tbl_Products">
+              <PropertyRef Name="Product_UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Users__UserR__3A81B327">
+          <End Role="Tbl_Roles" Type="Self.Tbl_Roles" Multiplicity="1" />
+          <End Role="Tbl_Users" Type="Self.Tbl_Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Roles">
+              <PropertyRef Name="Role_Id" />
+            </Principal>
+            <Dependent Role="Tbl_Users">
+              <PropertyRef Name="UserRole_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Db_WebApp1ModelStoreContainer">
+          <EntitySet Name="Tbl_Products" EntityType="Self.Tbl_Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Roles" EntityType="Self.Tbl_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Users" EntityType="Self.Tbl_Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Tbl_Produ__Produ__48CFD27E" Association="Self.FK__Tbl_Produ__Produ__48CFD27E">
+            <End Role="Tbl_Users" EntitySet="Tbl_Users" />
+            <End Role="Tbl_Products" EntitySet="Tbl_Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Users__UserR__3A81B327" Association="Self.FK__Tbl_Users__UserR__3A81B327">
+            <End Role="Tbl_Roles" EntitySet="Tbl_Roles" />
+            <End Role="Tbl_Users" EntitySet="Tbl_Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Db_WebApp1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tbl_Roles">
+          <Key>
+            <PropertyRef Name="Role_Id" />
+          </Key>
+          <Property Name="Role_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Role_Title" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Tbl_Users" Relationship="Self.FK__Tbl_Users__UserR__3A81B327" FromRole="Tbl_Roles" ToRole="Tbl_Users" />
+        </EntityType>
+        <EntityType Name="Tbl_Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Family" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Register_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="gender" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="UserRole_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tbl_Roles" Relationship="Self.FK__Tbl_Users__UserR__3A81B327" FromRole="Tbl_Users" ToRole="Tbl_Roles" />
+          <NavigationProperty Name="Tbl_Products" Relationship="Db_WebApp1Model.FK__Tbl_Produ__Produ__48CFD27E" FromRole="Tbl_Users" ToRole="Tbl_Products" />
+          </EntityType>
+        <Association Name="FK__Tbl_Users__UserR__3A81B327">
+          <End Role="Tbl_Roles" Type="Self.Tbl_Roles" Multiplicity="1" />
+          <End Role="Tbl_Users" Type="Self.Tbl_Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Roles">
+              <PropertyRef Name="Role_Id" />
+            </Principal>
+            <Dependent Role="Tbl_Users">
+              <PropertyRef Name="UserRole_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Db_WebApp1Entities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tbl_Roles" EntityType="Self.Tbl_Roles" />
+          <EntitySet Name="Tbl_Users" EntityType="Self.Tbl_Users" />
+          <AssociationSet Name="FK__Tbl_Users__UserR__3A81B327" Association="Self.FK__Tbl_Users__UserR__3A81B327">
+            <End Role="Tbl_Roles" EntitySet="Tbl_Roles" />
+            <End Role="Tbl_Users" EntitySet="Tbl_Users" />
+          </AssociationSet>
+          <EntitySet Name="Tbl_Products" EntityType="Db_WebApp1Model.Tbl_Products" />
+          <AssociationSet Name="FK__Tbl_Produ__Produ__48CFD27E" Association="Db_WebApp1Model.FK__Tbl_Produ__Produ__48CFD27E">
+            <End Role="Tbl_Users" EntitySet="Tbl_Users" />
+            <End Role="Tbl_Products" EntitySet="Tbl_Products" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Tbl_Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product_Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Product_Details" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Product_Price" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Product_Image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Product_UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tbl_Users" Relationship="Db_WebApp1Model.FK__Tbl_Produ__Produ__48CFD27E" FromRole="Tbl_Products" ToRole="Tbl_Users" />
+        </EntityType>
+        <Association Name="FK__Tbl_Produ__Produ__48CFD27E">
+          <End Type="Db_WebApp1Model.Tbl_Users" Role="Tbl_Users" Multiplicity="1" />
+          <End Type="Db_WebApp1Model.Tbl_Products" Role="Tbl_Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tbl_Products">
+              <PropertyRef Name="Product_UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Db_WebApp1ModelStoreContainer" CdmEntityContainer="Db_WebApp1Entities2">
+          <EntitySetMapping Name="Tbl_Roles">
+            <EntityTypeMapping TypeName="Db_WebApp1Model.Tbl_Roles">
+              <MappingFragment StoreEntitySet="Tbl_Roles">
+                <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+                <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
+                <ScalarProperty Name="Role_Title" ColumnName="Role_Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Users">
+            <EntityTypeMapping TypeName="Db_WebApp1Model.Tbl_Users">
+              <MappingFragment StoreEntitySet="Tbl_Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Family" ColumnName="Family" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Register_date" ColumnName="Register_date" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UserRole_Id" ColumnName="UserRole_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Products">
+            <EntityTypeMapping TypeName="Db_WebApp1Model.Tbl_Products">
+              <MappingFragment StoreEntitySet="Tbl_Products">
+                <ScalarProperty Name="Product_UserId" ColumnName="Product_UserId" />
+                <ScalarProperty Name="Product_Image" ColumnName="Product_Image" />
+                <ScalarProperty Name="Product_Price" ColumnName="Product_Price" />
+                <ScalarProperty Name="Product_Details" ColumnName="Product_Details" />
+                <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

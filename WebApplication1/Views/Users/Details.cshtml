@@ -1,0 +1,109 @@
+﻿@model WebApplication1.Models.Tbl_Users
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="signup-form text-white mt-5">
+    <h2 class="text-center mt-3">جزئیات</h2>
+    <dl class="dl-horizontal">
+        <dt class="form-label ml-3 mb-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd class="form-control col-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt class="form-label ml-3 mb-2">
+            @Html.DisplayNameFor(model => model.Family)
+        </dt>
+
+        <dd class="form-control col-10">
+            @Html.DisplayFor(model => model.Family)
+        </dd>
+
+        <dt class="form-label ml-3 mb-2">
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd class="form-control col-10">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt class="form-label ml-3 mb-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd class="form-control col-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt class="form-label ml-3 mb-2">
+            @Html.DisplayNameFor(model => model.Register_date)
+        </dt>
+
+        <dd class="form-control col-10">
+            @Html.DisplayFor(model => model.Register_date)
+        </dd>
+
+        <dt class="form-label ml-3 mb-2">
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd class="form-control col-10">
+            @if (Model.gender == true)
+            {
+                <span>مرد</span>
+            }
+            else
+            {
+                <span>زن</span>
+            }
+        </dd>
+
+        <dt class="form-label ml-3 mb-2">
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd class="form-control col-10">
+            @if (Model.IsActive)
+            {
+                <span style="color:green">فعال</span>
+            }
+            else
+            {
+                <span style="color:red">غیر فعال</span>
+            }
+        </dd>
+
+        <dt class="form-label ml-3 mb-2">
+            @Html.DisplayNameFor(model => model.Tbl_Roles.Role_Name)
+        </dt>
+
+        <dd class="form-control col-10">
+            @Html.DisplayFor(model => model.Tbl_Roles.Role_Title)
+        </dd>
+
+    </dl>
+    <div class="form-group float-left">
+        <div class="offset-md-12 mr-3">
+            @Html.ActionLink("بازگشت به لیست کاربران", "Index") |
+            @Html.ActionLink("ویرایش", "Edit", new { id = Model.Id }, new { @class = "btn btn-success" })
+        </div>
+    </div>
+</div>
+
+@section style{
+    <style>
+        body {
+            background-image: url('../../images/BgImages/peakpx (18).jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        footer {
+            display: none;
+        }
+    </style>
+}

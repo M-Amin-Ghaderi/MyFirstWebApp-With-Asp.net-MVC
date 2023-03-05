@@ -1,0 +1,66 @@
+﻿@model WebApplication1.Models.Tbl_Products
+
+@{
+    ViewBag.Title = "ثبت محصول جدید";
+}
+@using (Html.BeginForm("Create", "Products", FormMethod.Post, new { enctype = "multipart/form-data", @class = "signup-form", @style = "color:white;" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal ml-2">
+        <h4 class="text-center mt-3">ثبت محصول جدید</h4>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Product_Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "نام محصول" } })
+                @Html.ValidationMessageFor(model => model.Product_Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Product_Details, new { htmlAttributes = new { @class = "form-control",@placeholder="توضیحات محصول" } })
+                @Html.ValidationMessageFor(model => model.Product_Details, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="number" id="Product_Price" name="Product_Price" class="form-control" placeholder="قیمت محصول" />
+                @Html.ValidationMessageFor(model => model.Product_Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product_Image, htmlAttributes: new { @class = "control-label col-md-4",@style="color:#788"})
+            <div class="col-md-10">
+                <input type="file" id="Product_Image" name="Product_Image" class="form-control" />
+                @Html.ValidationMessageFor(model => model.Product_Image, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="form-group float-left">
+        <div class="offset-md-12 mr-3">
+            @Html.ActionLink("بازگشت به لیست محصولات", "Index", null,new { @class=""}) |
+            <input type="submit" value="ثبت" class="btn btn-success" />
+        </div>
+    </div>
+}
+
+
+<script src="~/Scripts/jquery-3.6.3.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@section style{
+    <style>
+        body {
+            background-image: url('../../images/BgImages/peakpx (12).jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        footer {
+            display: none;
+        }
+    </style>
+}

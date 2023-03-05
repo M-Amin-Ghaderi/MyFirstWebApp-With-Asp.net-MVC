@@ -1,0 +1,70 @@
+﻿@model WebApplication1.Models.Tbl_Products
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<div class="signup-form text-white mt-5">
+    <h4 class="text-center mt-2">آیا از حذف مطمئن هستید؟</h4>
+    <dl class="form-horizontal">
+        <dt class="form-label ml-3 mb-2">
+            @Html.DisplayNameFor(model => model.Product_Name)
+        </dt>
+        <dd class="form-control col-10">
+            @Html.DisplayFor(model => model.Product_Name)
+        </dd>
+
+        <dt class="form-label ml-3 mb-2">
+            @Html.DisplayNameFor(model => model.Product_Details)
+        </dt>
+
+        <dd class="form-control col-10">
+            @Html.DisplayFor(model => model.Product_Details)
+        </dd>
+
+        <dt class="form-label ml-3 mb-2">
+            @Html.DisplayNameFor(model => model.Product_Price)
+        </dt>
+
+        <dd class="form-control col-10">
+            @Html.DisplayFor(model => model.Product_Price) تومان
+        </dd>
+
+        <dt class="form-label ml-3 mb-2">
+            @Html.DisplayNameFor(model => model.Product_Image)
+        </dt>
+
+        <dd style="background-color:#222 !important">
+            <img src="~/images/Product/@Model.Product_Image" style="width:200px;height:150px;border-radius:5px;" />
+        </dd>
+    </dl>
+    @using (Html.BeginForm("Delete", "Products", FormMethod.Post, new { @class = "float-left" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-row">
+            @Html.ActionLink("بازگشت به لیست محصولات", "Index",null,new {@class = "mr-2"}) | 
+            <input type="submit" value="حذف" class="text-center btn btn-danger m-auto ml-2" />
+        </div>
+    }
+</div>
+
+
+@section style{
+
+    <style>
+        body {
+            background-image: url('../../images/BgImages/peakpx (18).jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .btn-danger {
+            background-color: #dc3545 !important;
+        }
+
+        footer {
+            display: none;
+        }
+    </style>
+
+}

@@ -1,0 +1,137 @@
+﻿@model WebApplication1.Models.Tbl_Users
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+
+
+@using (Html.BeginForm("Edit", "Users", FormMethod.Post, new { enctype = "multipart/form-data", @class = "signup-form text-white mt-5" }))
+{
+    @Html.AntiForgeryToken()
+    <h2 class="text-center mt-3">ویرایش @Model.Name @Model.Family</h2>
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Register_date)
+        @Html.HiddenFor(model => model.UserRole_Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label ml-3 mb-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Family, htmlAttributes: new { @class = "control-label ml-3 mb-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Family, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Family, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label ml-3 mb-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label ml-3 mb-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label ml-3 mb-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Register_date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Register_date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Register_date, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    <select>
+                        @if (Model.gender == true)
+                        {
+                            <option hidden id="gender" name="gender">مرد</option>
+                        }
+                        else
+                        {
+                            <option hidden id="gender" name="gender">زن</option>
+                        }
+                        <option value="true">مرد</option>
+                        <option value="false">زن</option>
+                    </select>
+                    @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label ml-3 mb-2" })
+            <div class="col-10">
+                <div class="checkbox">
+                    <select id="IsActive" name="IsActive">
+                        @if (Model.IsActive == true)
+                        {
+                            <option style="color:green" value="true" selected>فعال</option>
+                            <option style="color:red" value="false">غیر فعال</option>
+                        }
+                        else
+                        {
+                            <option style="color:green" value="true">فعال</option>
+                            <option style="color:red" value="false" selected>غیر فعال</option>
+                        }
+                    </select>
+                    @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group float-left">
+        <div class="offset-md-12 mr-3">
+            @Html.ActionLink("بازگشت به لیست محصولات", "Index") |
+            <input type="submit" value="ذخیره تغییرات" class="my-btn btn-success" />
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+@section style{
+    <style>
+        body {
+            background-image: url('../../images/BgImages/peakpx (16).jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        footer {
+            display: none;
+        }
+    </style>
+}
